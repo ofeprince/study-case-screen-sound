@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Itens de Solução/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="Ofeprince.Alura.ScreenSound.Console/Ofeprince.Alura.ScreenSound.Console.csproj" />
 </Solution>
