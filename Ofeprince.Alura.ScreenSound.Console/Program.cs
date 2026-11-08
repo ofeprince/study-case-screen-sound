@@ -1,4 +1,6 @@
 ﻿// Calling a method
+using System.Runtime.CompilerServices;
+
 ShowWelcomeMessage();
 ShowMenu();
 
@@ -22,4 +24,21 @@ void ShowMenu()
     Console.WriteLine("Type 3 to evaluate a band");
     Console.WriteLine("Type 4 to show band evaluations");
     Console.WriteLine("Type -1 to exit");
+
+    Console.Write("\nType your choice: ");
+
+    //Receiving an input from the console
+    string stringInputOption = Console.ReadLine()!;
+    
+    if (int.TryParse(stringInputOption, out int inputOption))
+    {
+        // One of the ways to format a string, it's named composite formatting
+        Console.WriteLine("Choice made: {0}", inputOption);
+    }
+    else
+    {
+        // TODO: handle invalid int input
+        Console.WriteLine("Invalid option. Please enter a valid number.");
+    }
+
 }
