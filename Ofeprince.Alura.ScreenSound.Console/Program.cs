@@ -1,7 +1,12 @@
-﻿// Calling a method
-using System.Runtime.CompilerServices;
+﻿// Initializing a list with values
+List<string> bandNames = new List<string>
+{
+    "Sleep Token",
+    "Gojira",
+    "Rage Against the Machine"
+};
 
-ShowWelcomeMessage();
+
 ShowMenu();
 
 // A void method: void doesn't return any value
@@ -18,7 +23,7 @@ void ShowWelcomeMessage()
 
 void ShowMenu()
 {
-    // Press 4 
+    ShowWelcomeMessage();
     Console.WriteLine("\nType 1 to record a band");
     Console.WriteLine("Type 2 to show all bands");
     Console.WriteLine("Type 3 to evaluate a band");
@@ -27,18 +32,74 @@ void ShowMenu()
 
     Console.Write("\nType your choice: ");
 
-    //Receiving an input from the console
+    // Receiving an input from the console
     string stringInputOption = Console.ReadLine()!;
     
     if (int.TryParse(stringInputOption, out int inputOption))
     {
         // One of the ways to format a string, it's named composite formatting
         Console.WriteLine("Choice made: {0}", inputOption);
+
+        // Switch statement is good to use when we have many predefined options
+        switch (inputOption)
+        {
+            case 1:
+                RecordBand();
+                break;
+            case 2:
+                ShowAllBands();
+                break;
+            case 3:
+                Console.WriteLine("Evaluating a band...");
+                break;
+            case 4:
+                Console.WriteLine("Showing band evaluations...");
+                break;
+            case -1:
+                Console.WriteLine("Exiting the application...");
+                break;
+            default:
+                Console.WriteLine("Invalid option. Please enter a valid number.");
+                break;
+        }
     }
     else
     {
-        // TODO: handle invalid int input
         Console.WriteLine("Invalid option. Please enter a valid number.");
     }
 
+}
+
+void RecordBand()
+{
+    // Clearing console
+    Console.Clear();
+    Console.Write("\nEnter the band name: ");
+    string bandName = Console.ReadLine()!;
+
+    // Adding value to the list
+    bandNames.Add(bandName);
+
+    // Another way to format a string, it's called string interpolation
+    Console.WriteLine($"Band {bandName} was added successfully");
+    Thread.Sleep(2000);
+
+    Console.Clear();
+    ShowMenu();
+}
+
+void ShowAllBands()
+{
+    Console.Clear();
+    Console.WriteLine("See all bands: \n");
+
+    for (int i = 0; i <bandNames.Count; i++)
+    {
+        Console.WriteLine($"Band {i + 1}: {bandNames[i]}");
+    }
+
+    Console.Write("\nPress any key to continue... ");
+    Console.ReadKey();
+    Console.Clear();
+    ShowMenu();
 }
