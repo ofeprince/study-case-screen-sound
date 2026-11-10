@@ -1,11 +1,10 @@
-﻿// Initializing a list with values
-List<string> bandNames = new List<string>
+﻿// Initializing a dictionary with values
+Dictionary<string, List<double>> dictionaryOfBandsAndTheirNotes = new Dictionary<string, List<double>>
 {
-    "Sleep Token",
-    "Gojira",
-    "Rage Against the Machine"
+    { "Sleep Token", new List<double> { 10, 8.5, 7 } },
+    { "Gojira", new List<double> { 10, 10, 10 } },
+    { "Rage Against the Machine", new List<double> { 10, 10, 10 } }
 };
-
 
 ShowMenu();
 
@@ -78,7 +77,7 @@ void RecordBand()
     string bandName = Console.ReadLine()!;
 
     // Adding value to the list
-    bandNames.Add(bandName);
+    dictionaryOfBandsAndTheirNotes.Add(bandName, new List<double>());
 
     // Another way to format a string, it's called string interpolation
     Console.WriteLine($"Band {bandName} was added successfully");
@@ -93,9 +92,9 @@ void ShowAllBands()
     Console.Clear();
     Console.WriteLine("See all bands: \n");
 
-    for (int i = 0; i <bandNames.Count; i++)
+    for (int i = 0; i < dictionaryOfBandsAndTheirNotes.Count; i++)
     {
-        Console.WriteLine($"Band {i + 1}: {bandNames[i]}");
+        Console.WriteLine($"Band {i + 1}: { dictionaryOfBandsAndTheirNotes.Keys.ElementAt(i) }");
     }
 
     Console.Write("\nPress any key to continue... ");
