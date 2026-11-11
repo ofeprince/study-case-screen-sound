@@ -26,7 +26,7 @@ void ShowMenu()
     Console.WriteLine("\nType 1 to record a band");
     Console.WriteLine("Type 2 to show all bands");
     Console.WriteLine("Type 3 to evaluate a band");
-    Console.WriteLine("Type 4 to show band evaluations");
+    Console.WriteLine("Type 4 to show average of the bands");
     Console.WriteLine("Type -1 to exit");
 
     Console.Write("\nType your choice: ");
